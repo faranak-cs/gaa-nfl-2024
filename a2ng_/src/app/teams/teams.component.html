@@ -1,1 +1,27 @@
 <h2>Teams</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Names</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    @for(team of teams; track team.id){
+    <tr>
+      <td>
+        <img
+          src="assets/logos/{{ team.name }}.png"
+          alt="{{ team.name }}"
+          id="team"
+        />
+        {{ team.name }}
+      </td>
+      <td>
+        <a href="https://en.wikipedia.org/wiki/{{ team.name }}_GAA">Info...</a>
+      </td>
+    </tr>
+    }
+  </tbody>
+</table>
