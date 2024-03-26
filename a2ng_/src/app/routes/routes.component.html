@@ -15,7 +15,7 @@
         <a href="http://localhost:3000/teams">http://localhost:3000/teams</a>
       </td>
       <td>
-        <button class="btn btn-primary">Get</button>
+        <button (click)="getTeamsHandler()" class="btn btn-primary">Get</button>
       </td>
     </tr>
 
@@ -28,7 +28,9 @@
         >
       </td>
       <td>
-        <button class="btn btn-primary">Get</button>
+        <button (click)="getPlayersHandler()" class="btn btn-primary">
+          Get
+        </button>
       </td>
     </tr>
 
@@ -41,7 +43,9 @@
         >
       </td>
       <td>
-        <button class="btn btn-primary">Get</button>
+        <button (click)="getResultsHandler()" class="btn btn-primary">
+          Get
+        </button>
       </td>
     </tr>
 
@@ -54,7 +58,9 @@
         >
       </td>
       <td>
-        <button class="btn btn-primary">Get</button>
+        <button (click)="getResultsByDivisionHandler()" class="btn btn-primary">
+          Get
+        </button>
       </td>
     </tr>
   </tbody>
@@ -62,5 +68,5 @@
 
 <p>JSON Data</p>
 <textarea id="textarea" class="form-control" rows="20" cols="100" readOnly v>
-  {{ teams | json }}
+  {{ text | json }}
 </textarea>
