@@ -1,1 +1,60 @@
 <h2>Routes</h2>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th>Route</th>
+      <th>URL</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Get teams</td>
+      <td>
+        <a>/teams</a>
+      </td>
+      <td></td>
+      <td>
+        <button class="btn btn-primary">Get</button>
+      </td>
+    </tr>
+
+    <tr>
+      <td>Get players</td>
+      <td>
+        <a>/players</a>
+      </td>
+      <td></td>
+      <td>
+        <button class="btn btn-primary">Get</button>
+      </td>
+    </tr>
+
+    <tr>
+      <td>Get results</td>
+      <td>
+        <a>/results</a>
+      </td>
+      <td></td>
+      <td>
+        <button class="btn btn-primary">Get</button>
+      </td>
+    </tr>
+
+    <tr>
+      <td>Get results by division</td>
+      <td>
+        <a>/results/1</a>
+      </td>
+      <td></td>
+      <td>
+        <button class="btn btn-primary">Get</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<p>JSON Data</p>
+<textarea id="textarea" class="form-control" rows="20" cols="100" readOnly v>
+  {{ teams | json }}
+</textarea>

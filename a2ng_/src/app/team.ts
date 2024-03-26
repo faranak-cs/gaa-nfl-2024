@@ -1,4 +1,3 @@
-export interface Team {    
-    //
-    //
+export interface Team {
+  name: string;
 }

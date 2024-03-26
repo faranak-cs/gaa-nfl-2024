@@ -4,15 +4,10 @@ import { Observable } from 'rxjs';
 import { Team } from './team';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-
-export class TeamsService {  
-
-  constructor()
-  {
-  }
+export class TeamsService {
+  constructor() {}
 
   // getTeams here
-
 }
