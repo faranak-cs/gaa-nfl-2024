@@ -10,7 +10,6 @@ import { TeamsService } from '../teams.service';
   styleUrl: './teams.component.css',
 })
 export class TeamsComponent {
-  // teamURL: string = `assets/logos/${team.name}.png`;
   teams: Team[] = [];
 
   // Inject team service

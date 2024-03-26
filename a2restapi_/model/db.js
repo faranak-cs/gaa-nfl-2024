@@ -32,12 +32,18 @@ exports.getTeams = function (req, res) {
 
 // GET /players
 exports.getPlayers = function (req, res) {
-  connection.query(`SELECT * from players`, function (err, rows, fields) {
-    if (err) throw err;
+  connection.query(
+    `SELECT players.id, players.teamID, players.name, players.squadNumber, players.age, players.matches, teams.name AS teamName 
+     FROM players
+     JOIN teams
+     WHERE players.teamID = teams.id;`,
+    function (err, rows, fields) {
+      if (err) throw err;
 
-    res.status(200); // OK
-    res.send(JSON.stringify(rows));
-  });
+      res.status(200); // OK
+      res.send(JSON.stringify(rows));
+    }
+  );
 };
 
 // GET /results

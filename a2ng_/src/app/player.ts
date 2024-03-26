@@ -5,4 +5,5 @@ export interface Player {
   squadNumber: number;
   age: number;
   matches: number;
+  teamName: string;
 }
