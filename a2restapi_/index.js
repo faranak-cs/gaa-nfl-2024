@@ -35,6 +35,11 @@ app.route("/results/").get(function (req, res) {
   model.getResults(req, res);
 });
 
+// /results/ID
+app.route("/results/:id?").get(function (req, res) {
+  model.getResultById(req, res);
+});
+
 var myServer = app.listen(3000, function () {
   console.log("Server listening on port 3000");
 });

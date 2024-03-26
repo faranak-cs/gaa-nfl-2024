@@ -49,3 +49,16 @@ exports.getResults = function (req, res) {
     res.send(JSON.stringify(rows));
   });
 };
+
+// GET /results/ID
+exports.getResultById = function (req, res) {
+  connection.query(
+    `SELECT * FROM results WHERE division=${req.params.id}`,
+    function (err, rows, fields) {
+      if (err) throw err;
+
+      res.status(200); // OK
+      res.send(JSON.stringify(rows));
+    }
+  );
+};
