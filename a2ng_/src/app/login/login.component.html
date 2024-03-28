@@ -1,0 +1,22 @@
+<h2>Login</h2>
+<form (submit)="handleSubmit($event)">
+  <label>Email address</label>
+  <input
+    id="Email"
+    placeholder="Enter email"
+    type="email"
+    class="form-control"
+    required
+  />
+  <label>Password</label>
+  <input
+    id="Password"
+    placeholder="Enter Password"
+    type="password"
+    class="form-control"
+    required
+  />
+  <label>{{ msg }}</label>
+  <br />
+  <button class="btn btn-primary" type="submit">Login</button>
+</form>

@@ -68,3 +68,31 @@ exports.getResultById = function (req, res) {
     }
   );
 };
+
+// POST /login
+exports.login = function (req, res) {
+  const { email, password } = req.body;
+  connection.query(
+    `SELECT * from users WHERE email='${email}'`,
+    function (err, rows, fields) {
+      if (err) {
+        res.status(401); // Invalid
+        res.send("Not found");
+      } else {
+        if (rows.length > 0) {
+          if (password === rows[0].password) {
+            const user = { email: rows[0].email };
+            res.send(JSON.stringify(user));
+            res.status(200); //OK
+          } else {
+            res.status(401); // Invalid
+            res.send("Not found");
+          }
+        } else {
+          res.status(401); // Invalid
+          res.send("Not found");
+        }
+      }
+    }
+  );
+};
