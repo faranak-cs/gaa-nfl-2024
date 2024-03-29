@@ -34,12 +34,17 @@ import { AuthService } from '../auth.service';
 })
 export class NavComponent {
   email: string = '';
+  isloggedin: boolean = false;
 
-  constructor(private router: Router, public authService: AuthService) {}
+  constructor(private router: Router, private authService: AuthService) {}
 
   ngOnInit(): void {
-    this.router.events.subscribe((event) => {
-      if (event.constructor.name === 'NavigationEnd') {
+    this.router.events.subscribe(() => {
+      if (this.authService.IsLoggedIn()) {
+        this.isloggedin = true;
+        this.email = this.authService.getUserEmail();
+      } else {
+        this.isloggedin = false;
         this.email = this.authService.getUserEmail();
       }
     });

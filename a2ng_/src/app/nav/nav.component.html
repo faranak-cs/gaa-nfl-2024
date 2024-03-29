@@ -7,15 +7,11 @@
     <a class="nav-link" routerLink="/tables">Tables</a>
     <a class="nav-link" routerLink="/stats">Stats</a>
 
-    <a *ngIf="!authService.IsLoggedIn()" class="nav-link" routerLink="/login"
-      >Login</a
-    >
+    <a *ngIf="!isloggedin" class="nav-link" routerLink="/login">Login</a>
 
-    <a *ngIf="authService.IsLoggedIn()" class="nav-link" routerLink="/admin"
-      >Admin</a
-    >
+    <a *ngIf="isloggedin" class="nav-link" routerLink="/admin">Admin</a>
     <a
-      *ngIf="authService.IsLoggedIn()"
+      *ngIf="isloggedin"
       class="nav-link"
       routerLink="/login"
       (click)="logoutHandler()"
