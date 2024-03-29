@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class AuthService {
-  isLoggedIn = false;
+  // isLoggedIn = false;
   url: string = `http://localhost:3000/login/`;
   res: any;
 

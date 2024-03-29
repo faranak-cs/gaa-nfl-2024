@@ -56,9 +56,6 @@ export class NavComponent {
     // clear cookie
     this.authService.logout();
 
-    // Set isLoggedIn
-    this.authService.isLoggedIn = false;
-
     // Route to Login page
     this.router.navigateByUrl('/login');
   }

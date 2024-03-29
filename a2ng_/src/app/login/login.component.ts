@@ -42,9 +42,6 @@ export class LoginComponent {
         // Store cookie
         localStorage.setItem('IsLoggedIn', JSON.stringify(res.body));
 
-        // Set isLoggedIn
-        this.authService.isLoggedIn = true;
-
         // Route to Admin page
         this.router.navigateByUrl('/admin');
       }
