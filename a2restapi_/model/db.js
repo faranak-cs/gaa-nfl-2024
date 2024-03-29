@@ -82,8 +82,8 @@ exports.login = function (req, res) {
         if (rows.length > 0) {
           if (password === rows[0].password) {
             const user = { email: rows[0].email };
-            res.send(JSON.stringify(user));
             res.status(200); //OK
+            res.send(JSON.stringify(user));
           } else {
             res.status(401); // Invalid
             res.send("Not found");
