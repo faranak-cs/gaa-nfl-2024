@@ -53,7 +53,7 @@
           type="text"
           id="score"
           [defaultValue]="result.team1Score"
-          (keyup)="team1ScoreHandler($event)"
+          (change)="team1ScoreHandler($event)"
         />
       </td>
       <td>
@@ -62,7 +62,7 @@
           type="text"
           id="score"
           [defaultValue]="result.team2Score"
-          (keyup)="team2ScoreHandler($event)"
+          (change)="team2ScoreHandler($event)"
         />
       </td>
       <td>
@@ -75,12 +75,12 @@
       </td>
       <td>D{{ result.division }} Rd{{ result.round }}</td>
       <td>
-        <button class="btn btn-primary" (click)="updateHandler()">
+        <button class="btn btn-primary" (click)="updateHandler(result.id)">
           Update
         </button>
       </td>
       <td>
-        <button class="btn btn-primary" (click)="deleteHandler()">
+        <button class="btn btn-primary" (click)="deleteHandler(result.id)">
           Delete
         </button>
       </td>

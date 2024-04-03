@@ -3,11 +3,12 @@ import { Result } from '../result';
 import { ResultsService } from '../results.service';
 import { DatePipe } from '@angular/common';
 import { Score } from '../score';
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-admin',
   standalone: true,
-  imports: [DatePipe],
+  imports: [DatePipe, ReactiveFormsModule],
   templateUrl: './admin.component.html',
   styleUrl: './admin.component.css',
 })
@@ -16,8 +17,10 @@ export class AdminComponent {
   results: Result[] = [];
   filterResults: Result[] = [];
 
+  // Score object
   score: Score = { team1_score: '', team2_score: '' };
-  id: number = 0;
+
+  id?: number;
 
   // Inject services
   constructor(private resultService: ResultsService) {}
@@ -54,18 +57,40 @@ export class AdminComponent {
     this.score.team2_score = (event.target as HTMLInputElement).value;
   }
 
-  updateHandler() {
-    this.resultService.updateResult(this.score, 16389).subscribe((res) => {
+  updateHandler(id: number) {
+    this.resultService.updateResult(this.score, id).subscribe((res) => {
       if (res.status === 201) {
         console.log(res.body);
+
+        // Get data
+        this.resultService.getResults().subscribe((res) => {
+          this.results = res;
+          this.filterResults = res;
+
+          // filter results
+          this.filterResults = this.round
+            ? this.results.filter((res) => res.round === this.round)
+            : this.results;
+        });
       }
     });
   }
 
-  deleteHandler() {
-    this.resultService.deleteResult(16389).subscribe((res) => {
+  deleteHandler(id: number) {
+    this.resultService.deleteResult(id).subscribe((res) => {
       if (res.status === 200) {
         console.log(res.body);
+
+        // Get data
+        this.resultService.getResults().subscribe((res) => {
+          this.results = res;
+          this.filterResults = res;
+
+          // filter results
+          this.filterResults = this.round
+            ? this.results.filter((res) => res.round === this.round)
+            : this.results;
+        });
       }
     });
   }
