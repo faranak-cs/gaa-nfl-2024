@@ -20,8 +20,6 @@ export class AdminComponent {
   // Score object
   score: Score = { team1_score: '', team2_score: '' };
 
-  id?: number;
-
   // Inject services
   constructor(private resultService: ResultsService) {}
 
