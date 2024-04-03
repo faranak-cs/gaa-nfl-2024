@@ -62,16 +62,8 @@ export class AdminComponent {
       if (res.status === 201) {
         console.log(res.body);
 
-        // Get data
-        this.resultService.getResults().subscribe((res) => {
-          this.results = res;
-          this.filterResults = res;
-
-          // filter results
-          this.filterResults = this.round
-            ? this.results.filter((res) => res.round === this.round)
-            : this.results;
-        });
+        // Get data again
+        this.ngOnInit();
       }
     });
   }
@@ -81,16 +73,8 @@ export class AdminComponent {
       if (res.status === 200) {
         console.log(res.body);
 
-        // Get data
-        this.resultService.getResults().subscribe((res) => {
-          this.results = res;
-          this.filterResults = res;
-
-          // filter results
-          this.filterResults = this.round
-            ? this.results.filter((res) => res.round === this.round)
-            : this.results;
-        });
+        // Get data again
+        this.ngOnInit();
       }
     });
   }
