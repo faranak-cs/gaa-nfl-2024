@@ -6,7 +6,9 @@ Round {{ currentRound }}
 <button (click)="nextRoundHandler()" class="btn btn-primary">
   Round {{ nextRound }} &gt;&gt;
 </button>
+
 <hr />
+
 <label for="team">Team:</label>
 <input
   class="form-control"
@@ -15,7 +17,9 @@ Round {{ currentRound }}
   name="team"
   (keyup)="teamHandler($event)"
 />
+
 <hr />
+
 <table class="table">
   <thead>
     <tr>

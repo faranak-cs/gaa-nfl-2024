@@ -23,27 +23,37 @@ model.updateRoundNumbers();
 // routes
 //
 
-// /teams
+// /teams GET
 app.route("/teams/").get(function (req, res) {
   model.getTeams(req, res);
 });
 
-// /players
+// /players GET
 app.route("/players/").get(function (req, res) {
   model.getPlayers(req, res);
 });
 
-// /results
+// /results GET
 app.route("/results/").get(function (req, res) {
   model.getResults(req, res);
 });
 
-// /results/ID
-app.route("/results/:id?").get(function (req, res) {
-  model.getResultById(req, res);
+// /results/div GET
+app.route("/results/:div?").get(function (req, res) {
+  model.getResultByDivision(req, res);
 });
 
-// /login
+// /result/id PUT
+app.route("/results/:id?").put(function (req, res) {
+  model.updateResult(req, res);
+});
+
+// /result/id DELETE
+app.route("/results/:id?").delete(function (req, res) {
+  model.deleteResult(req, res);
+});
+
+// /login POST
 app.route("/login").post(function (req, res) {
   model.login(req, res);
 });

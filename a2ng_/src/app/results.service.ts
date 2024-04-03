@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Result } from './result';
+import { Score } from './score';
 
 @Injectable({
   providedIn: 'root',
@@ -21,5 +22,12 @@ export class ResultsService {
   // get /results/ID data from REST API server
   getResultsByDivision(id: number): Observable<Result[]> {
     return this.http.get<Result[]>(`${this.url}/${id}`);
+  }
+
+  // update /results/matchID
+  updateResult(score: Score, matchID: number) {
+    return this.http.put(`${this.url}/${matchID}`, score, {
+      observe: 'response',
+    });
   }
 }

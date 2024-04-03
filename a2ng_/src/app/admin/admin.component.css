@@ -1,0 +1,15 @@
+#team-img {
+  max-width: 25px;
+  max-height: 25px;
+}
+label {
+  float: left;
+}
+
+select {
+  width: 95%;
+}
+
+#score {
+  width: 50%;
+}

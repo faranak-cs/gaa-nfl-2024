@@ -92,15 +92,48 @@ exports.getResults = function (req, res) {
   });
 };
 
-// GET /results/ID
-exports.getResultById = function (req, res) {
+// GET /results/divID
+exports.getResultByDivision = function (req, res) {
   connection.query(
-    `SELECT * FROM results WHERE division=${req.params.id}`,
+    `SELECT * FROM results WHERE division=${req.params.div}`,
     function (err, rows, fields) {
       if (err) throw err;
 
       res.status(200); // OK
       res.send(JSON.stringify(rows));
+    }
+  );
+};
+
+// PUT /results/id
+exports.updateResult = function (req, res) {
+  const { team1_score, team2_score } = req.body;
+
+  connection.query(
+    `UPDATE results
+     SET team1Score = '${team1_score}', team2Score = '${team2_score}'
+     WHERE id = ${req.params.id}`,
+    function (err, rows, fields) {
+      if (err) throw err;
+
+      const result = { team1_score, team2_score };
+      res.status(201); // OK
+      res.send(
+        `Result with id: ${req.params.id} is updated with ${team1_score} & ${team2_score}`
+      );
+    }
+  );
+};
+
+// DELETE /result/id
+exports.deleteResult = function (req, res) {
+  connection.query(
+    `DELETE from results WHERE id=${req.params.id}`,
+    function (err, row, fields) {
+      if (err) throw err;
+
+      res.status(200); //OK
+      res.send(`Result with id: ${req.params.id} is deleted`);
     }
   );
 };
