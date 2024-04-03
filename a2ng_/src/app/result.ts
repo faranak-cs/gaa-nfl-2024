@@ -2,6 +2,7 @@ import { Time } from '@angular/common';
 
 export interface Result {
   id: number;
+  round: string;
   division: string;
   team1: string;
   team2: string;
