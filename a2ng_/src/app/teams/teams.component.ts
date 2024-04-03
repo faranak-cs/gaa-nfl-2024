@@ -13,9 +13,10 @@ export class TeamsComponent {
   teams: Team[] = [];
 
   // Inject team service
-  teamService = inject(TeamsService);
+  constructor(private teamService: TeamsService) {}
 
-  constructor() {
+  // Get data
+  ngOnInit() {
     this.teamService.getTeams().subscribe((res) => {
       this.teams = res;
     });

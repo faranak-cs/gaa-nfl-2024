@@ -22,6 +22,7 @@ export class ResultsComponent {
 
   enteredTeamName: string = '';
 
+  // Inject services
   constructor(private resultService: ResultsService) {}
 
   ngOnInit() {

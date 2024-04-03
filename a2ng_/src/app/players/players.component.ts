@@ -19,11 +19,13 @@ export class PlayersComponent {
   filterPlayers: Player[] = [];
 
   // Inject services
+  constructor(
+    private playerService: PlayersService,
+    private teamService: TeamsService
+  ) {}
 
-  playerService = inject(PlayersService);
-  teamService = inject(TeamsService);
-
-  constructor() {
+  // Get data
+  ngOnInit() {
     this.playerService.getPlayers().subscribe((res) => {
       this.players = res;
       this.filterPlayers = res;

@@ -21,10 +21,11 @@ export class RoutesComponent {
   text: any[] = [];
 
   // Inject services
-
-  playerService = inject(PlayersService);
-  teamService = inject(TeamsService);
-  resultService = inject(ResultsService);
+  constructor(
+    private playerService: PlayersService,
+    private teamService: TeamsService,
+    private resultService: ResultsService
+  ) {}
 
   // Button Handlers
 
