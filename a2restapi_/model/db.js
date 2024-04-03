@@ -118,9 +118,7 @@ exports.updateResult = function (req, res) {
 
       const result = { team1_score, team2_score };
       res.status(201); // OK
-      res.send(
-        `Result with id: ${req.params.id} is updated with ${team1_score} & ${team2_score}`
-      );
+      res.send(JSON.stringify(result));
     }
   );
 };
@@ -132,8 +130,9 @@ exports.deleteResult = function (req, res) {
     function (err, row, fields) {
       if (err) throw err;
 
+      const result = req.params.id;
       res.status(200); //OK
-      res.send(`Result with id: ${req.params.id} is deleted`);
+      res.send(JSON.stringify(result));
     }
   );
 };

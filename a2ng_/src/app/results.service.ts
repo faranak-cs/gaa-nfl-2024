@@ -19,15 +19,20 @@ export class ResultsService {
     return this.http.get<Result[]>(this.url);
   }
 
-  // get /results/ID data from REST API server
-  getResultsByDivision(id: number): Observable<Result[]> {
-    return this.http.get<Result[]>(`${this.url}/${id}`);
+  // get /results/div data from REST API server
+  getResultsByDivision(div: number): Observable<Result[]> {
+    return this.http.get<Result[]>(`${this.url}/${div}`);
   }
 
-  // update /results/matchID
-  updateResult(score: Score, matchID: number) {
-    return this.http.put(`${this.url}/${matchID}`, score, {
+  // update /results/id
+  updateResult(score: Score, id: number) {
+    return this.http.put(`${this.url}/${id}`, score, {
       observe: 'response',
     });
+  }
+
+  // delete /results/id
+  deleteResult(id: number) {
+    return this.http.delete(`${this.url}/${id}`, { observe: 'response' });
   }
 }

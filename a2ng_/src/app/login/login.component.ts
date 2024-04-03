@@ -47,8 +47,4 @@ export class LoginComponent {
       }
     });
   }
-
-  // setUpdateNav(value: string) {
-  //   this.updateNav.emit(value);
-  // }
 }

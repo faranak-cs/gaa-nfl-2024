@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Result } from '../result';
 import { ResultsService } from '../results.service';
 import { DatePipe } from '@angular/common';
+import { Score } from '../score';
 
 @Component({
   selector: 'app-admin',
@@ -15,8 +16,8 @@ export class AdminComponent {
   results: Result[] = [];
   filterResults: Result[] = [];
 
-  team1_score: string = '';
-  team2_score: string = '';
+  score: Score = { team1_score: '', team2_score: '' };
+  id: number = 0;
 
   // Inject services
   constructor(private resultService: ResultsService) {}
@@ -34,7 +35,7 @@ export class AdminComponent {
     });
   }
 
-  // Handler
+  // Handlers
 
   selectRoundHandler(event: Event) {
     this.round = (event.target as HTMLSelectElement).value;
@@ -43,5 +44,29 @@ export class AdminComponent {
     this.filterResults = this.round
       ? this.results.filter((res) => res.round === this.round)
       : this.results;
+  }
+
+  team1ScoreHandler(event: Event) {
+    this.score.team1_score = (event.target as HTMLInputElement).value;
+  }
+
+  team2ScoreHandler(event: Event) {
+    this.score.team2_score = (event.target as HTMLInputElement).value;
+  }
+
+  updateHandler() {
+    this.resultService.updateResult(this.score, 16389).subscribe((res) => {
+      if (res.status === 201) {
+        console.log(res.body);
+      }
+    });
+  }
+
+  deleteHandler() {
+    this.resultService.deleteResult(16389).subscribe((res) => {
+      if (res.status === 200) {
+        console.log(res.body);
+      }
+    });
   }
 }
