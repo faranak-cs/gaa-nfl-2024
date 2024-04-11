@@ -1,7 +1,7 @@
 export interface TableItem {
-  teamId: number;
   teamPos: number;
   teamName: string;
+  pd: number;
   wins: number;
   draws: number;
   losses: number;

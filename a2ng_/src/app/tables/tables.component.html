@@ -1,5 +1,5 @@
 <h2>Divsion 1</h2>
-<table class="table">
+<table class="table table-striped">
   <thead>
     <tr>
       <th>Pos</th>
@@ -13,13 +13,14 @@
     </tr>
   </thead>
   <tbody>
-    @for(tab of table; track tab.teamId){
+    @for(tab of table; track tab.teamPts){
     <tr>
       <td>{{ tab.teamPos }}</td>
       <td>{{ tab.teamName }}</td>
+      <td>{{ tab.pd }}</td>
       <td>{{ tab.wins }}</td>
-      <td>{{ tab.losses }}</td>
       <td>{{ tab.draws }}</td>
+      <td>{{ tab.losses }}</td>
       <td>{{ tab.difference }}</td>
       <td>{{ tab.teamPts }}</td>
     </tr>
