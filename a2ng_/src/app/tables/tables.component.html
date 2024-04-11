@@ -13,15 +13,16 @@
     </tr>
   </thead>
   <tbody>
+    @for(tab of table; track tab.teamId){
     <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{{ tab.teamPos }}</td>
+      <td>{{ tab.teamName }}</td>
+      <td>{{ tab.wins }}</td>
+      <td>{{ tab.losses }}</td>
+      <td>{{ tab.draws }}</td>
+      <td>{{ tab.difference }}</td>
+      <td>{{ tab.teamPts }}</td>
     </tr>
+    }
   </tbody>
 </table>

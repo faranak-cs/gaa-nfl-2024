@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { Result } from '../result';
 import { ResultsService } from '../results.service';
-import { Table } from '../table';
+import { TableItem } from '../table-item';
+import { Team } from '../team';
 
 @Component({
   selector: 'app-tables',
@@ -11,30 +12,26 @@ import { Table } from '../table';
   styleUrl: './tables.component.css',
 })
 export class TablesComponent {
-  table: Table[] = [];
+  teams: Team[] = [];
   results: Result[] = [];
   filterResults: Result[] = [];
+  table: TableItem[] = [];
 
-  team1Score: Number = 0;
-  team2Score: Number = 0;
+  wins: number = 0;
+  losses: number = 0;
+  draws: number = 0;
+  diff: number = 0;
+  team1Score: number = 0;
+  team2Score: number = 0;
+  pts: number = 0;
 
+  // Constructor
   constructor(private resultService: ResultsService) {}
 
+  // Initialize component
   ngOnInit() {
     this.resultService.getResultsByDivision(1).subscribe((res) => {
       this.results = res;
-
-      // Calculate scores
-      for (let i = 0; i < this.results.length; i++) {
-        this.team1Score =
-          this.results[i].team1Goals + this.results[i].team1Points;
-        this.team2Score =
-          this.results[i].team2Goals + this.results[i].team2Points;
-
-        if (this.team1Score > this.team2Score) {
-          this.table[i].teamName;
-        }
-      }
     });
   }
 }
