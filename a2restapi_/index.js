@@ -17,7 +17,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 ///////////////////////////////////////////////////////////////////////////////////////////
 
 // Update round
-model.updateRoundNumbers();
+// model.updateRoundNumbers();
 
 //
 // routes

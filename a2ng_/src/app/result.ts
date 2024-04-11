@@ -1,5 +1,3 @@
-import { Time } from '@angular/common';
-
 export interface Result {
   id: number;
   round: string;

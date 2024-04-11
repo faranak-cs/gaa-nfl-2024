@@ -21,38 +21,38 @@ connection.connect(function (err) {
 ///////////////////////////////////////////////////////////////////////////////////////////
 
 // Update round numbers based on dates
-exports.updateRoundNumbers = function () {
-  var sql = `
-    UPDATE results
-    SET round = CASE 
-        WHEN date = '24 March 2024' THEN 7
+// exports.updateRoundNumbers = function () {
+//   var sql = `
+//     UPDATE results
+//     SET round = CASE
+//         WHEN date = '24 March 2024' THEN 7
 
-        WHEN date = '27 January 2024' THEN 1
-        WHEN date = '28 January 2024' THEN 1
+//         WHEN date = '27 January 2024' THEN 1
+//         WHEN date = '28 January 2024' THEN 1
 
-        WHEN date = '3 February 2024' THEN 2
-        WHEN date = '4 February 2024' THEN 2
+//         WHEN date = '3 February 2024' THEN 2
+//         WHEN date = '4 February 2024' THEN 2
 
-        WHEN date = '17 February 2024' THEN 3
-        WHEN date = '18 February 2024' THEN 3
+//         WHEN date = '17 February 2024' THEN 3
+//         WHEN date = '18 February 2024' THEN 3
 
-        WHEN date = '24 February 2024' THEN 4
-        WHEN date = '25 February 2024' THEN 4
+//         WHEN date = '24 February 2024' THEN 4
+//         WHEN date = '25 February 2024' THEN 4
 
-        WHEN date = '2 March 2024' THEN 5
-        WHEN date = '3 March 2024' THEN 5
+//         WHEN date = '2 March 2024' THEN 5
+//         WHEN date = '3 March 2024' THEN 5
 
-        WHEN date = '15 March 2024' THEN 6
-        WHEN date = '16 March 2024' THEN 6
-        WHEN date = '17 March 2024' THEN 6
-        
-    END;
-  `;
+//         WHEN date = '15 March 2024' THEN 6
+//         WHEN date = '16 March 2024' THEN 6
+//         WHEN date = '17 March 2024' THEN 6
 
-  connection.query(sql, function (err, result) {
-    if (err) throw err;
-  });
-};
+//     END;
+//   `;
+
+//   connection.query(sql, function (err, result) {
+//     if (err) throw err;
+//   });
+// };
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 
