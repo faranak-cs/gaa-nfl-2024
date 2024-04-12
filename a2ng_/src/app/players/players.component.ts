@@ -27,6 +27,17 @@ export class PlayersComponent {
   // Get data
   ngOnInit() {
     this.playerService.getPlayers().subscribe((res) => {
+      // sort by team name first then by player name
+      res.sort((a, b) => {
+        if (a.teamName > b.teamName) return 1;
+        else if (a.teamName < b.teamName) return -1;
+        else {
+          if (a.name > b.name) return 1;
+          else if (a.name < b.name) return -1;
+          else return 0;
+        }
+      });
+
       this.players = res;
       this.filterPlayers = res;
     });
