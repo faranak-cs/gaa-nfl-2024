@@ -56,14 +56,19 @@ export class AdminComponent {
   }
 
   updateHandler(id: number) {
-    this.resultService.updateResult(this.score, id).subscribe((res) => {
-      if (res.status === 201) {
-        console.log(res.body);
+    if (!(this.score.team1_score === '' && this.score.team2_score === '')) {
+      this.resultService.updateResult(this.score, id).subscribe((res) => {
+        if (res.status === 201) {
+          console.log(res.body);
 
-        // Get data again
-        this.ngOnInit();
-      }
-    });
+          // Get data again
+          this.ngOnInit();
+        }
+      });
+
+      // Set score object to zero again
+      this.score = { team1_score: '', team2_score: '' };
+    }
   }
 
   deleteHandler(id: number) {
