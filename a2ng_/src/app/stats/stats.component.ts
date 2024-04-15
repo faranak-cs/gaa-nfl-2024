@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Team } from '../team';
 import { TeamsService } from '../teams.service';
+import * as d3 from 'd3';
 
 @Component({
   selector: 'app-stats',
@@ -20,6 +21,8 @@ export class StatsComponent {
   ngOnInit() {
     this.teamService.getTeams().subscribe((res) => {
       this.teams = res;
+
+      // d3 logic
     });
   }
 
