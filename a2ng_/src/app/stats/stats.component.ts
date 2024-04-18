@@ -58,5 +58,7 @@ export class StatsComponent {
           (result) => result.team1 === this.team || result.team2 === this.team
         )
       : this.results;
+
+    console.log(this.filterResults);
   }
 }
