@@ -14,7 +14,79 @@
 <br />
 
 <h3>{{ team }} Match Scores</h3>
-<svg id="match-score" width="200" height="200"></svg>
+<svg id="match-score" width="500" height="500">
+  <g>
+    @for(result of filterResults; track result.id){
+
+    <!-- When selected team is team1 -->
+    @if(result.team1 === team){
+
+    <!-- Construct bar for team1 first -->
+    <rect
+      [attr.x]="points[$index].x1"
+      [attr.y]="500 - (result.team1Points + result.team1Goals * 3) * 20"
+      width="30"
+      [attr.height]="(result.team1Points + result.team1Goals * 3) * 20"
+      fill="rgb(70, 130, 180)"
+    />
+    <text [attr.x]="points[$index].x1" y="10" font-size="12px">
+      Rd {{ result.round }} vs {{ result.team2 }}
+    </text>
+
+    <!-- Match Scores -->
+    <text [attr.x]="points[$index].x1" y="480" font-size="14px">
+      {{ result.team1Score }}
+    </text>
+
+    <!-- Construct bar for team2 -->
+    <rect
+      [attr.x]="points[$index].x2"
+      [attr.y]="500 - (result.team2Points + result.team2Goals * 3) * 20"
+      width="30"
+      [attr.height]="(result.team2Points + result.team2Goals * 3) * 20"
+      fill="rgb(255, 0, 0)"
+    />
+
+    <!-- Match Scores -->
+    <text [attr.x]="points[$index].x2" y="480" font-size="14px">
+      {{ result.team2Score }}
+    </text>
+    } @else {
+
+    <!-- When selected team is team2 -->
+    <!-- Construct bar for team2 first -->
+    <rect
+      [attr.x]="points[$index].x1"
+      [attr.y]="500 - (result.team2Points + result.team2Goals * 3) * 20"
+      width="30"
+      [attr.height]="(result.team2Points + result.team2Goals * 3) * 20"
+      fill="rgb(70, 130, 180)"
+    />
+    <text [attr.x]="points[$index].x1" y="10" font-size="12px">
+      Rd {{ result.round }} vs {{ result.team1 }}
+    </text>
+
+    <!-- Match Scores -->
+    <text [attr.x]="points[$index].x1" y="480" font-size="14px">
+      {{ result.team2Score }}
+    </text>
+
+    <!-- Construct bar for team 1 -->
+    <rect
+      [attr.x]="points[$index].x2"
+      [attr.y]="500 - (result.team1Points + result.team1Goals * 3) * 20"
+      width="30"
+      [attr.height]="(result.team1Points + result.team1Goals * 3) * 20"
+      fill="rgb(255, 0, 0)"
+    />
+
+    <!-- Match Scores -->
+    <text [attr.x]="points[$index].x2" y="480" font-size="14px">
+      {{ result.team1Score }}
+    </text>
+    } }
+  </g>
+</svg>
 
 <hr />
 
